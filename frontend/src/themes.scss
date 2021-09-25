@@ -1,8 +1,14 @@
 @import '~@nebular/theme/styles/theming';
 @import '~@nebular/theme/styles/themes/default';
 
+// Angular Material Styling
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
 // Bootstrap
 @import 'custom-bootstrap';
+
+// For testing/debuging
+//@import "~bootstrap/scss/bootstrap";
 
 $nb-themes: nb-register-theme((
 
@@ -19,6 +25,10 @@ $nb-themes: nb-register-theme((
   // color-primary-900: #091c7a,
 
   // Default Background Color: White
-  background-basic-color-3: #ffffff!important,
+  background-basic-color-3: #ffffff,
+  // Custom Background Image
+  coming-soon-bg: url('/assets/imgs/TexturedBackground.png'),
+  //  Font Override
+  font-family-primary: 'Nunito',
 
 ), default, default);

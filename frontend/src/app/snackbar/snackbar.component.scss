@@ -1,0 +1,15 @@
+@import '../../themes';
+
+@include nb-install-component() {
+  .message-text {
+    @include make-col-ready;
+    @include make-col(10);
+    align-self: center;
+    text-align: center;
+  }
+  .close-icon {
+    @include make-col-ready;
+    @include make-col(2);
+    align-self: center;
+  }
+}

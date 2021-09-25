@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "anonymoussystemswebapp": {
+      "hosting": {
+        "frontend": [
+          "anonymoussystemswebapp"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "anonymoussystemswebapp"
+  }
+}

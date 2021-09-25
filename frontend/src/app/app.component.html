@@ -1,21 +1,31 @@
 <nb-layout>
 
-  <nb-layout-header fixed>
-  <!-- Insert header here -->
-    <div class="h1">
-      Header
-    </div>
-  </nb-layout-header>
+  <nb-layout-column class="img-container">
+    <ng-template [ngIf]="!hide_google_cookies_consent">
+      <div class="popup">
+        This site uses cookies from Google to deliver its services and to analyze traffic.
 
-  <nb-layout-column>
-
+        <div class="buttons">
+          <a
+            mat-button
+            href="https://policies.google.com/technologies/cookies"
+            target="_blank"
+            rel="noopener"
+            class="mat-focus-indicator mat-button more-details-btn"
+            tabindex="0"
+            aria-disabled="false"
+          >MORE DETAILS</a>
+          <button
+            mat-button
+            color="primary"
+            (click)="accept_google_cookies_consent()"
+            class="mat-focus-indicator mat-button mat-primary ok-btn">
+            OK, GOT IT
+          </button>
+        </div>
+      </div>
+    </ng-template>
     <router-outlet></router-outlet>
-
   </nb-layout-column>
-
-  <nb-layout-footer fixed>
-  <!-- Insert footer here -->
-    <div class="h3">v{{ currentApplicationVersion }}</div>
-  </nb-layout-footer>
 
 </nb-layout>

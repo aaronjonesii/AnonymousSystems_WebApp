@@ -1,0 +1,233 @@
+@import '../../themes';
+
+@include nb-install-component() {
+  .header-container {
+    padding: 0!important;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .header-text {
+    font-family: 'Zilla Slab Highlight', 'Open Sans';
+    color: #DDC179;
+    font-size: 1.875rem;
+  }
+  .github-icon {
+    font-size: 4rem;
+  }
+  .launching-container {
+    padding: 1rem 0 0.5rem 0;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .launching-text {
+    font-family: 'Fredoka One', cursive;
+    color: #FFFFFF;
+    font-size: 3.125rem;
+    padding: 0!important;
+  }
+  .verysoon-container {
+    padding: 1rem 0 1rem 0;
+    margin-bottom: 2rem;
+    text-align: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .verysoon-text {
+    color: #FFFFFF;
+    font-size: 3.125rem;
+    padding: 0!important;
+    .custom-period { color: #DDC179; }
+  }
+  .thanks-sub > * { color: #DDC179!important; }
+  .form-container {
+    //padding: 0!important;
+    text-align: center;
+  }
+  .form-control {
+    color: #FFFFFF!important;
+    opacity: 1;
+    font-size: 1.563rem;
+  }
+  .invalid-email { margin-top:1rem;margin-bottom:1rem;color: red; font-size: 1.5rem }
+  .email-required { margin-top:1rem;margin-bottom:1rem;color: red; font-size: 1.5rem }
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #FFFFFF!important;
+    opacity: 1;
+    font-size: 1.45rem;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: #FFFFFF!important;
+    opacity: 1;
+    font-size: 1.45rem;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: #FFFFFF!important;
+    opacity: 1;
+    font-size: 1.45rem;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: #FFFFFF!important;
+    opacity: 1;
+    font-size: 1.45rem;
+  }
+  .email-input-container {
+    margin: 2rem 0 1rem 0;
+    @include make-col-ready;
+    @include media-breakpoint-up(md) {
+      @include make-col(8)
+    }
+  }
+  .email-address-input {
+    padding: 0!important;
+    background-color: transparent!important;
+    border: none;
+    border-bottom: #DDC179 6px solid;
+  }
+  .email-input-label {
+    font-size: 1.45rem;
+    color: #FFFFFF;
+    //padding: 2.5rem 0 0 0;
+    //border: 0!important;
+  }
+  .subscribe-container {
+    margin: 0.5rem 0 0 0;
+    @include make-col-ready;
+    @include media-breakpoint-up(md) {
+      @include make-col(4)
+    }
+  }
+  .subscribe-btn {
+    color: #FFFFFF;
+    border: #DDC179 6px solid;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+  .footer-container { }
+  .copyright-container {
+    padding: 0 0.5rem 0 0.5rem;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  .copyright-text {
+    color: #DDC179;
+    padding: 0!important;
+    width: auto;
+  }
+  .app-version-text {
+    padding: 0!important;
+    width: auto;
+  }
+
+
+  // Small devices (landscape phones, 576px and up)
+  @media (max-width: 310px) {
+    .header-text { font-size: 1.8rem; }
+  }
+
+  // Small Media Breakpoint
+  @include media-breakpoint-up(sm) {
+    .header-container {
+      margin-top: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .header-text { font-size: 2.5rem; }
+    .github-icon { font-size: 5rem; }
+  }
+  // Medium Media Breakpoint
+  @include media-breakpoint-up(md) {
+    .header-container {
+      margin-top: 2rem;
+      margin-bottom: 5rem;
+    }
+    .header-text { font-size: 4rem }
+    .github-icon { font-size: 7rem; }
+    .launching-container { margin-top: 4rem; margin-bottom: 3.5rem; }
+    .launching-text { font-size: 5rem; }
+    .verysoon-container {
+      margin-bottom: 4rem;
+    }
+    .verysoon-text { font-size: 5rem; }
+    .form-control { font-size: 2.25rem; box-shadow: none!important; }
+    ::-webkit-input-placeholder { font-size: 2.25rem; }
+    ::-moz-placeholder { font-size: 2.25rem; }
+    :-ms-input-placeholder { font-size: 2.25rem; }
+    :-moz-placeholder { font-size: 2.25rem; }
+  }
+  // Large Media Breakpoint
+  @include media-breakpoint-up(lg) {
+    .header-container {
+      margin-top: 2rem;
+      margin-bottom: 5rem;
+    }
+    .header-text { font-size: 5rem }
+    .github-icon { font-size: 10rem; }
+    .launching-container { margin-top: 3rem;margin-bottom: 4rem; }
+    .launching-text { font-size: 5.5rem; }
+    .verysoon-container {
+      margin-bottom: 3rem;
+    }
+    .verysoon-text { font-size: 5.5rem; }
+    .form-control { font-size: 2.25rem; }
+    ::-webkit-input-placeholder { font-size: 2.25rem; }
+    ::-moz-placeholder { font-size: 2.25rem; }
+    :-ms-input-placeholder { font-size: 2.25rem; }
+    :-moz-placeholder { font-size: 2.25rem; }
+    .subscribe-btn { font-size: 1.35rem; }
+  }
+  // Extra-Large Media Breakpoint
+  @include media-breakpoint-up(xl) {
+    .header-container {
+      margin-top: 3rem;
+      margin-bottom: 6rem;
+    }
+    .header-text { font-size: 5rem }
+    .github-icon { font-size: 10rem; }
+    .launching-container { margin-top: 4rem;margin-bottom: 6rem; }
+    .launching-text { font-size: 7rem; }
+    .verysoon-text { font-size: 7rem; }
+    .form-control { font-size: 2.5rem; }
+    ::-webkit-input-placeholder { font-size: 2.5rem; }
+    ::-moz-placeholder { font-size: 2.5rem; }
+    :-ms-input-placeholder { font-size: 2.5rem; }
+    :-moz-placeholder { font-size: 2.5rem; }
+    .email-input-container { padding-left: 10rem; }
+    .subscribe-container { padding-right: 5rem; }
+    .subscribe-btn { font-size: 1.35rem; }
+  }
+  @include media-breakpoint-up(xxl) {
+    .email-input-container { padding-left: 15rem; }
+    .subscribe-container { padding-right: 7rem; }
+  }
+  @include media-breakpoint-up(xxxxl) {
+    .header-container {
+      margin-top: 3rem;
+      margin-bottom: 6rem;
+    }
+    .header-text { font-size: 7rem }
+    .github-icon { font-size: 10rem; }
+    .launching-container { margin-bottom: 5rem; }
+    .launching-text { font-size: 7rem; }
+    .verysoon-text { font-size: 7rem; }
+    .form-control { font-size: 3rem; }
+    ::-webkit-input-placeholder { font-size: 3rem; }
+    ::-moz-placeholder { font-size: 3rem; }
+    :-ms-input-placeholder { font-size: 3rem; }
+    :-moz-placeholder { font-size: 3rem; }
+    .subscribe-btn { padding: 1rem; font-size: 2rem; }
+  }
+
+}

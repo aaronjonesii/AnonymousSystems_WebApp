@@ -2,18 +2,28 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import {
-  CORPORATE_THEME, COSMIC_THEME, DARK_THEME, DEFAULT_THEME,
-  NbDialogModule, NbIconModule, NbLayoutModule, NbSidebarModule, NbThemeModule, NbWindowModule
+  CORPORATE_THEME, COSMIC_THEME, DARK_THEME, DEFAULT_THEME, NbCardModule,
+  NbDialogModule, NbIconModule, NbLayoutModule, NbSidebarModule, NbTagModule, NbThemeModule, NbWindowModule
 } from '@nebular/theme';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRippleModule } from '@angular/material/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LocalStorageService } from './services/local-storage.service';
+import { LocalStorageRefService } from './services/local-storage-ref.service';
 
-const BASE_MODULES = [ CommonModule, RouterModule ];
+const BASE_MODULES = [ CommonModule, RouterModule, FormsModule, ReactiveFormsModule, ];
 const NB_MODULES = [
-  NbLayoutModule, NbIconModule,
+  NbLayoutModule, NbIconModule, NbCardModule, NbTagModule,
 ]!;
-const MAT_MODULES = []!;
+const MAT_MODULES = [
+  MatDialogModule, MatButtonModule, MatRippleModule, MatSnackBarModule,
+]!;
+const COMPONENTS = []!;
 const ENTRY_COMPONENTS = []!;
 const PIPES = []!;
-const SERVICES = []!;
+const SERVICES = [LocalStorageService, LocalStorageRefService]!;
 const GUARDS = []!;
 
 const NB_THEME_PROVIDERS = [
@@ -24,7 +34,6 @@ const NB_THEME_PROVIDERS = [
     [ DEFAULT_THEME, COSMIC_THEME, CORPORATE_THEME, DARK_THEME ],
   ).providers!,
   ...NbSidebarModule.forRoot().providers!,
-  ...NbDialogModule.forRoot().providers!,
   ...NbWindowModule.forRoot().providers!,
 ];
 
@@ -34,8 +43,8 @@ const PROVIDERS = [
 
 @NgModule({
   imports: [ ...BASE_MODULES, ...NB_MODULES, ...MAT_MODULES ],
-  exports: [...BASE_MODULES, ...NB_MODULES, ...MAT_MODULES, ...PIPES],
-  declarations: [ ...PIPES ],
+  exports: [...BASE_MODULES, ...NB_MODULES, ...MAT_MODULES, ...PIPES, ...COMPONENTS],
+  declarations: [ ...PIPES, ...COMPONENTS ],
   entryComponents: [...ENTRY_COMPONENTS],
 })
 export class ThemeModule {

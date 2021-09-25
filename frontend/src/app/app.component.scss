@@ -1,0 +1,75 @@
+@import '../themes';
+
+@include nb-install-component() {
+  // TODO: Uncomment to make height of header smaller
+  //::ng-deep nb-layout-header nav {
+  //  height: 3.5rem!important;
+  //}
+
+  .img-container {
+    background: linear-gradient(0deg, rgba(26, 26, 26, 0.44), rgba(26, 26, 26, 0.44)), nb-theme(coming-soon-bg) no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  ::ng-deep .mat-dialog-container {padding: 0!important;margin: 24px};
+  .popup {
+    box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 24px;
+    max-width: 462px;
+    z-index: 1031;
+    padding: 16px 16px 8px;
+    border-radius: 4px;
+    color: rgba(0,0,0,.87);
+    background: #fafafa;
+    //padding: 16px 16px 8px 16px;
+    //line-height: 20px;
+    font-family: Roboto,Helvetica Neue Light,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+    font-size: 1rem;
+    line-height: 19px;
+  }
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin: 16px -8px 0 0;
+    text-transform: uppercase;
+    line-height: 36px;
+  }
+  .more-details-btn {
+    color: rgba(0, 0, 0, 0.87);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-decoration: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 36px;
+  }
+  .more-details-btn:hover {background-color: rgba(0, 0, 0, 0.05);color: rgba(0, 0, 0, 0.87)}
+  .ok-btn {
+    color: rgb(63, 81, 181);
+    border: none!important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .ok-btn:hover {background-color: rgba(63, 81, 181, 0.05);}
+
+  // Small Media Breakpoint
+  @include media-breakpoint-down(sm) {
+    .img-container {
+      background-attachment: initial;
+    }
+  }
+  // Medium Media Breakpoint
+  @include media-breakpoint-up(md) {
+    .popup { width: 462px; }
+  }
+  // Large Media Breakpoint
+  @include media-breakpoint-down(lg) {}
+  // Extra-Large Media Breakpoint
+  @include media-breakpoint-down(xl) {}
+}

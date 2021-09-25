@@ -1,3 +1,9 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Zilla+Slab+Highlight:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+// Nebular Styling
 @import 'themes';
 
 @import '~@nebular/theme/styles/globals';
@@ -12,5 +18,11 @@
   box-shadow: none!important;
 }
 
-//html, body { height: 100%; }
-//body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// Hide Footer Border & Shadow
+.nb-theme-default nb-layout-footer {
+  box-shadow: none!important;
+  nav { border: 0!important; }
+}
+
+// Angular Material SnackBar Font Color
+.snackBar {color: #DDC179;}
