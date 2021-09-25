@@ -12,13 +12,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocalStorageService } from './services/local-storage.service';
 import { LocalStorageRefService } from './services/local-storage-ref.service';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const BASE_MODULES = [ CommonModule, RouterModule, FormsModule, ReactiveFormsModule, ];
 const NB_MODULES = [
   NbLayoutModule, NbIconModule, NbCardModule, NbTagModule,
 ]!;
 const MAT_MODULES = [
-  MatDialogModule, MatButtonModule, MatRippleModule, MatSnackBarModule,
+  MatDialogModule, MatButtonModule, MatRippleModule, MatSnackBarModule, MatTooltipModule,
 ]!;
 const COMPONENTS = []!;
 const ENTRY_COMPONENTS = []!;

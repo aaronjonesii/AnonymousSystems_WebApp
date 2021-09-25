@@ -49,6 +49,7 @@ export class ComingSoonComponent implements OnInit {
         } else {
           this.db.collection('newsletter-list').doc(email).set({dateAdded: Date.now()})
             .then(() => {
+              this.isSubscribed = true;
               this.notificationService.sendNotification("✅ Successfully subscribed your email address. Welcome!");
             })
             .catch((error) => {

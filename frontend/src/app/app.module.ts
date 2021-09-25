@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    MatTooltipModule,
 
     //  Lazy Loaded Modules below
   ],
