@@ -15,6 +15,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     HttpClientModule,
 
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAnalyticsModule,
     AngularFirestoreModule,
     MatTooltipModule,
 
