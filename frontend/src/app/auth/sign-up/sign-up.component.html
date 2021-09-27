@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="sign-up-container">
+      <form class="">
+        <div class="display-4">Sign Up</div>
+        <div class="mb-3">
+          <label for="emailInput" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" #emailAddress>
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="passwordInput" class="form-label">Password</label>
+          <input type="password" class="form-control" id="passwordInput" #userPassword>
+        </div>
+        <button nbButton status="success" type="submit" (click)="authService.SignUp(emailAddress.value, userPassword.value)">SignUp</button>
+      </form>
+      <div class="row my-4">
+        <div class="display-4">Or</div>
+      </div>
+      <!-- Continue with Google -->
+      <div class="container">
+        <div class="row">
+          <div class="formGroup">
+            <button nbButton  status="info" type="button" (click)="authService.GoogleAuth()">
+              <nb-icon icon="google"></nb-icon>
+              Log in with Google
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="container my-3">
+        <div class="row">
+          <button nbButton outline status="warning" routerLink="/sign-in">Log In</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

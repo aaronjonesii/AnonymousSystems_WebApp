@@ -5,7 +5,7 @@
 
 // Nebular Styling
 @import 'themes';
-@import '~@nebular/theme/styles/globals';
+@import '../../node_modules/@nebular/theme/styles/globals';
 
 @include nb-install() {
   @include nb-theme-global();

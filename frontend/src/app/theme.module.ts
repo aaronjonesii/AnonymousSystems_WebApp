@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import {
-  CORPORATE_THEME, COSMIC_THEME, DARK_THEME, DEFAULT_THEME, NbCardModule,
+  CORPORATE_THEME, COSMIC_THEME, DARK_THEME, DEFAULT_THEME, NbButtonModule, NbCardModule,
   NbDialogModule, NbIconModule, NbLayoutModule, NbSidebarModule, NbTagModule, NbThemeModule, NbWindowModule
 } from '@nebular/theme';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -13,13 +13,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LocalStorageService } from './services/local-storage.service';
 import { LocalStorageRefService } from './services/local-storage-ref.service';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatCardModule } from '@angular/material/card';
 
 const BASE_MODULES = [ CommonModule, RouterModule, FormsModule, ReactiveFormsModule, ];
 const NB_MODULES = [
-  NbLayoutModule, NbIconModule, NbCardModule, NbTagModule,
+  NbLayoutModule, NbIconModule, NbCardModule, NbTagModule, NbButtonModule,
 ]!;
 const MAT_MODULES = [
   MatDialogModule, MatButtonModule, MatRippleModule, MatSnackBarModule, MatTooltipModule,
+  MatCardModule,
 ]!;
 const COMPONENTS = []!;
 const ENTRY_COMPONENTS = []!;

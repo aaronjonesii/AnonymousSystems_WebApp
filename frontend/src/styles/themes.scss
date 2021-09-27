@@ -1,5 +1,5 @@
-@import '~@nebular/theme/styles/theming';
-@import '~@nebular/theme/styles/themes/default';
+@import '../../node_modules/@nebular/theme/styles/theming';
+@import '../../node_modules/@nebular/theme/styles/themes/default';
 
 // Bootstrap
 @import 'custom-bootstrap';
@@ -24,7 +24,7 @@ $nb-themes: nb-register-theme((
   // Default Background Color: White
   background-basic-color-3: #ffffff,
   // Custom Background Image
-  coming-soon-bg: url('/assets/imgs/TexturedBackground.png'),
+  coming-soon-bg: url('../assets/imgs/TexturedBackground.png'),
   //  Font Override
   font-family-primary: 'Nunito',
 

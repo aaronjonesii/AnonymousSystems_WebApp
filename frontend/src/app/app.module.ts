@@ -16,12 +16,29 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AuthService } from './services/auth.service';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+const AUTH_COMPONENTS = [
+  SignUpComponent,
+  SignInComponent,
+  ForgotPasswordComponent,
+  VerifyEmailComponent,
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     ComingSoonComponent,
     SnackbarComponent,
+    ...AUTH_COMPONENTS,
+    DashboardComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -36,13 +53,15 @@ import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
+    AngularFireAuthModule,
     AngularFirestoreModule,
     MatTooltipModule,
 
     //  Lazy Loaded Modules below
   ],
   providers: [
-    { provide: MAT_SNACK_BAR_DATA, useValue: {} }
+    { provide: MAT_SNACK_BAR_DATA, useValue: {} },
+    AuthService,
   ],
   bootstrap: [AppComponent],
   entryComponents: [SnackbarComponent],
