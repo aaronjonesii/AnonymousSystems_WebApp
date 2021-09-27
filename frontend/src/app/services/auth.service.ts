@@ -106,10 +106,10 @@ export class AuthService {
         // const token = credential!.accessToken;
         // The signed-in user info.
         const user = result.user;
-        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-        })
-        this.SetUserData(result.user);
+        this.router.navigate(['/dashboard']).then(() => {
+          this.SetUserData(result.user);
+          this.notification.sendNotification(`✔ Welcome ${user.displayName}`);
+        });
       }).catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
