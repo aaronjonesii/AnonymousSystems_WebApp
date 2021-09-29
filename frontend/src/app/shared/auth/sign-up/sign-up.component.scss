@@ -1,7 +1,7 @@
-@import 'src/styles/themes';
+@import '../../../../styles/themes';
 
 @include nb-install-component() {
-  .sign-in-container {
+  .sign-up-container {
     text-align: center;
     color: white;
   }

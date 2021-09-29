@@ -1,7 +1,7 @@
-@import 'src/styles/themes';
+@import '../../../../styles/themes';
 
 @include nb-install-component() {
-  .forgot-password-container {
+  .sign-in-container {
     text-align: center;
     color: white;
   }

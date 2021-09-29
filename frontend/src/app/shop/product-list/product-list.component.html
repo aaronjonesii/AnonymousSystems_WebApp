@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="text-center display-1" style="color: white">Products</div>
+    <nb-card *ngFor="let product of products | async">
+      <nb-card-header class="position-relative">
+        <nb-badge text="new" status="success" position="top left"></nb-badge>
+        <nb-badge class="bg-transparent" text="${{product.price}}" status="basic" position="top right"></nb-badge>
+        <h3><a [title]="product.name + ' details'" [routerLink]="['/shop', product.id]">{{product.name}}</a> </h3>
+      </nb-card-header>
+      <nb-card-body>
+        <p *ngIf="product.description">
+          Description: {{product.description}}
+        </p>
+      </nb-card-body>
+      <nb-card-footer>
+        <button nbButton status="success" (click)="addToCart(product)">Add to cart</button>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>

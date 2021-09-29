@@ -38,10 +38,8 @@ export class AuthService {
   SignIn(email: string, password: string) {
     return this.auth.signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-        });
-        this.SetUserData(userCredential.user);
+        this.SetUserData(userCredential.user)
+          .then(() => this.router.navigate(['dashboard']));
       }).catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -106,10 +104,12 @@ export class AuthService {
         // const token = credential!.accessToken;
         // The signed-in user info.
         const user = result.user;
-        this.router.navigate(['/dashboard']).then(() => {
-          this.SetUserData(result.user);
-          this.notification.sendNotification(`✔ Welcome ${user.displayName}`);
-        });
+        this.SetUserData(result.user)
+          .then(() => {
+            this.router.navigate(['/dashboard']).then(() => {
+              this.notification.sendNotification(`✔ Welcome ${user.displayName}`);
+            })
+          });
       }).catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;

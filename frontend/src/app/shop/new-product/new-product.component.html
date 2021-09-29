@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <nb-card>
+      <nb-card-header>
+        <div class="display-1">Add New Product</div>
+      </nb-card-header>
+      <nb-card-body>
+        <form class="container" [formGroup]="newProductForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="name" class="form-label">Product name</label>
+            <input type="text" class="form-control" formControlName="name" id="name" [ngClass]="{ 'is-invalid': submitted && this.newProductForm.controls.name.errors }" required>
+            <div *ngIf="submitted && this.newProductForm?.controls?.name?.errors" class="alert alert-danger">
+              <div *ngIf="this.newProductForm.controls.name.errors?.required" class="name-required">Product name is required</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" formControlName="description" id="description" [ngClass]="{ 'is-invalid': submitted && this.newProductForm.controls.description.errors }" required>
+            <div *ngIf="submitted && this.newProductForm?.controls?.description?.errors" class="alert alert-danger">
+              <div *ngIf="this.newProductForm.controls.description.errors?.required" class="description-required">Product description is required</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" formControlName="price" id="price" [ngClass]="{ 'is-invalid': submitted && this.newProductForm.controls.price.errors }" required>
+            <div *ngIf="submitted && this.newProductForm?.controls?.price?.errors" class="alert alert-danger">
+              <div *ngIf="this.newProductForm.controls.price.errors?.required" class="price-required">Product price is required</div>
+            </div>
+          </div>
+<!--          <div class="mb-3">-->
+<!--            <label for="inputImage" class="form-label">Image</label>-->
+<!--            <input type="text" class="form-control" id="inputImage">-->
+<!--          </div>-->
+          <div class="d-flex justify-content-center">
+            <button nbButton outline status="success" type="submit">Add Product</button>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbDialogModule, NbMenuModule, NbToastrModule } from "@nebular/theme";
+import { NbButtonModule, NbDialogModule, NbMenuModule, NbToastrModule } from "@nebular/theme";
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { ThemeModule } from './theme.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,17 +18,35 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { AngularFireAnalyticsModule } from '@angular/fire/compat/analytics';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AuthService } from './services/auth.service';
-import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
-import { SignInComponent } from './auth/sign-in/sign-in.component';
-import { SignUpComponent } from './auth/sign-up/sign-up.component';
-import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
+import { ForgotPasswordComponent } from './shared/auth/forgot-password/forgot-password.component';
+import { SignInComponent } from './shared/auth/sign-in/sign-in.component';
+import { SignUpComponent } from './shared/auth/sign-up/sign-up.component';
+import { VerifyEmailComponent } from './shared/auth/verify-email/verify-email.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProductListComponent } from './shop/product-list/product-list.component';
+import { DatePipe } from '@angular/common';
+import { ProductDetailComponent } from './shop/product-detail/product-detail.component';
+import { ShoppingCartComponent } from './shop/shopping-cart/shopping-cart.component';
+import { CheckoutComponent } from './shop/checkout/checkout.component';
+import { CheckoutSuccessComponent } from './shop/checkout-success/checkout-success.component';
+import { NewProductComponent } from './shop/new-product/new-product.component';
+import { EditProductComponent } from './shop/edit-product/edit-product.component';
 
 const AUTH_COMPONENTS = [
   SignUpComponent,
   SignInComponent,
   ForgotPasswordComponent,
   VerifyEmailComponent,
+]
+
+const SHOP_COMPONENTS = [
+  ProductListComponent,
+  ProductDetailComponent,
+  ShoppingCartComponent,
+  CheckoutComponent,
+  CheckoutSuccessComponent,
+  NewProductComponent,
+  EditProductComponent,
 ]
 
 @NgModule({
@@ -38,6 +56,7 @@ const AUTH_COMPONENTS = [
     SnackbarComponent,
     ...AUTH_COMPONENTS,
     DashboardComponent,
+    ...SHOP_COMPONENTS,
 
   ],
   imports: [
@@ -56,12 +75,13 @@ const AUTH_COMPONENTS = [
     AngularFireAuthModule,
     AngularFirestoreModule,
     MatTooltipModule,
+    NbButtonModule,
 
     //  Lazy Loaded Modules below
   ],
   providers: [
     { provide: MAT_SNACK_BAR_DATA, useValue: {} },
-    AuthService,
+    AuthService, DatePipe,
   ],
   bootstrap: [AppComponent],
   entryComponents: [SnackbarComponent],

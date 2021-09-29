@@ -1,3 +1,8 @@
+<div class="container my-4">
+  <div class="row">
+    <a nbButton routerLink="/shop/cart"><nb-icon icon="shopping-bag-outline"></nb-icon>Shopping Cart</a>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <mat-card class="example-card" *ngIf="authService.userData as user">
@@ -14,10 +19,13 @@
       </mat-card-content>
       <mat-card-actions>
         <button mat-button (click)="authService.SignOut()">Log out</button>
+        <button mat-button routerLink="/shop/new-product">Add Product</button>
       </mat-card-actions>
     </mat-card>
   </div>
 </div>
+<hr />
+<anon-product-list></anon-product-list>
 
 
 

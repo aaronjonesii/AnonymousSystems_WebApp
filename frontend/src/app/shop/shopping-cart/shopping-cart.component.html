@@ -1,0 +1,31 @@
+<div class="container my-4">
+  <div class="row">
+    <a nbButton routerLink="/dashboard"><nb-icon icon="shopping-bag-outline"></nb-icon>Continue shopping</a>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <nb-card>
+      <nb-card-header>Shopping Cart</nb-card-header>
+      <nb-card-body>
+        <nb-card class="row" *ngFor="let product of shopping_cart_items;">
+          <nb-card-header class="position-relative">
+            <nb-badge nbButton text="X" status="danger" position="top right" (click)="cartService.removeFromCart(product)"></nb-badge>
+            <div class="d-flex justify-content-around">
+              <div>{{product.name}}</div> <div>{{product.price | currency}}</div>
+            </div>
+          </nb-card-header>
+        </nb-card>
+        <div class="" *ngIf="shopping_cart_items.length > 0">
+          <button nbButton outline status="warning" (click)="cartService.clearCart()">Clear Cart</button>
+        </div>
+      </nb-card-body>
+      <nb-card-footer>
+        <div class="">Shipping Prices:</div>
+        <div class="">
+          <button nbButton status="info" routerLink="/shop/cart/checkout">Checkout</button>
+        </div>
+      </nb-card-footer>
+    </nb-card>
+  </div>
+</div>

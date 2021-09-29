@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import {
-  CORPORATE_THEME, COSMIC_THEME, DARK_THEME, DEFAULT_THEME, NbButtonModule, NbCardModule,
+  CORPORATE_THEME, COSMIC_THEME, DARK_THEME, DEFAULT_THEME, NbBadgeModule, NbButtonModule, NbCardModule,
   NbDialogModule, NbIconModule, NbLayoutModule, NbSidebarModule, NbTagModule, NbThemeModule, NbWindowModule
 } from '@nebular/theme';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -17,7 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 
 const BASE_MODULES = [ CommonModule, RouterModule, FormsModule, ReactiveFormsModule, ];
 const NB_MODULES = [
-  NbLayoutModule, NbIconModule, NbCardModule, NbTagModule, NbButtonModule,
+  NbLayoutModule, NbIconModule, NbCardModule, NbTagModule, NbButtonModule, NbBadgeModule,
 ]!;
 const MAT_MODULES = [
   MatDialogModule, MatButtonModule, MatRippleModule, MatSnackBarModule, MatTooltipModule,
