@@ -4,8 +4,8 @@
 // Bootstrap
 @import 'custom-bootstrap';
 
-// For testing/debuging
-//@import "~bootstrap/scss/bootstrap";
+// Only uncomment for testing/troubleshooting
+//@import "~bootstrap";
 
 $nb-themes: nb-register-theme((
 
