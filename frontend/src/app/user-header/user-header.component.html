@@ -1,0 +1,27 @@
+<ng-container *ngIf="isAuthenticated; else notLoggedIn">
+  <div *ngIf="authService.userData as user">
+    <a href="#" class="" aria-expanded="false">
+      <img
+        [matMenuTriggerFor]="userActions"
+        class="user-image"
+        [src]="user.photoURL"
+        [alt]="user.displayName" />
+      <mat-menu xPosition="before" #userActions="matMenu">
+        <ng-template matMenuContent>
+          <button mat-menu-item routerLink="/dashboard">
+            <mat-icon>dashboard</mat-icon>Dashboard
+          </button>
+          <button mat-menu-item routerLink="/blog">
+            <mat-icon>dynamic_feed</mat-icon>Blog
+          </button>
+          <button mat-menu-item (click)="authService.LogOut()">
+            <mat-icon>logout</mat-icon>Logout
+          </button>
+        </ng-template>
+      </mat-menu>
+    </a>
+  </div>
+</ng-container>
+<ng-template #notLoggedIn>
+  <button class="" routerLink="/auth/login">Sign In</button>
+</ng-template>

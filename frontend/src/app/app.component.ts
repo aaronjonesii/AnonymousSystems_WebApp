@@ -1,10 +1,10 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { NbIconLibraries } from '@nebular/theme';
-import { LocalStorageService } from './services/local-storage.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Component, Injector, OnInit } from '@angular/core';
+import { AuthService } from './services/auth.service';
 import { NotificationService } from './services/notification.service';
-import { skip } from 'rxjs/operators';
-import { SnackbarComponent } from './snackbar/snackbar.component';
+import { filter, skip } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { NavigationEnd, Router } from '@angular/router';
+import { UrlService } from './services/url.service';
 
 
 @Component({
@@ -13,46 +13,44 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  hide_google_cookies_consent = false;
-  google_cookies_consent_status = this._localStorageService.consent_for_cookies$;
+  previousUrl!: string;
+  currentUrl!: string;
 
   constructor(
-    private iconLibraries: NbIconLibraries,
-    private _localStorageService: LocalStorageService,
-    public snackBar: MatSnackBar,
+    public authService: AuthService,
+    injector: Injector,
     private notificationService: NotificationService,
+    private _snackBar: MatSnackBar,
+    public _router: Router,
+    private urlService: UrlService,
   ) {
     this.start_notification_service_subscription();
 
-    // Register FontAwesome Icons
-    this.iconLibraries.registerFontPack('font-awesome', { iconClassPrefix: 'fa', packClass: 'fa' }); // Version 4
-    this.iconLibraries.registerFontPack('new-font-awesome', { iconClassPrefix: 'fa', packClass: 'fas' }); // Version 5
-
+    this.authService.setUserAuthenticationStatus(this.authService.isLoggedIn);
   }
 
   ngOnInit() {
-    this.check_google_cookie_consent();
+    // Store previousUrl w/URL Service Subscription
+    this._router.events.pipe(
+      filter((event) => event instanceof NavigationEnd)
+    ).subscribe(
+      (event: any) => {
+        this.previousUrl = this.currentUrl;
+        this.currentUrl = event.url;
+        this.urlService.setPreviousUrl(this.previousUrl);
+      }
+    );
   }
 
+  // Send notification as popup
   start_notification_service_subscription() {
-    this.notificationService.notification$.pipe(skip(1)).subscribe((message) => {
+    this.notificationService.notification$.pipe(
+      skip(1) // skip initial message from setup
+    ).subscribe((message) => {
       if (message != '') {
-        // this.snackBar.open(message, "Dismiss", {duration: 10000, panelClass: 'snackBar'})
-        this.snackBar.openFromComponent(SnackbarComponent, {
-          data: message,
-          duration: 0,
-          panelClass: 'snackBar'
-        })
+        this._snackBar.open(message, 'Dismiss')
       }
     })
   }
-
-  check_google_cookie_consent() {
-    this.google_cookies_consent_status.subscribe((status) => {
-      if (status === 'true') { this.hide_google_cookies_consent = true; } else {this.hide_google_cookies_consent = false; }
-    } )
-  }
-
-  accept_google_cookies_consent() { this._localStorageService.setCookie('true') }
 
 }

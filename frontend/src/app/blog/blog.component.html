@@ -1,0 +1,13 @@
+<anon-layout-header></anon-layout-header>
+<h1>User Posts</h1>
+<ng-container *ngFor="let post of userPosts">
+  <anon-card *ngIf="post">
+    <anon-card-header>
+      <a routerLink="/blog/post/{{post.id}}">{{post.title}}</a>
+    </anon-card-header>
+    <anon-card-content>{{post | json}}</anon-card-content>
+    <anon-card-footer>{{post.author}}</anon-card-footer>
+  </anon-card>
+</ng-container>
+
+

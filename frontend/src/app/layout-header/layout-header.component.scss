@@ -1,0 +1,26 @@
+@import 'src/styles/styles';
+// Remove
+::ng-deep body {
+  margin: 0!important;
+}
+:host {
+  display: grid;
+
+  grid-template:
+  " brand    user " auto
+  / 3fr      1fr;
+  padding: 0.75rem 2rem 0 3rem;
+}
+.brand {
+  grid-area: brand;
+  //font-size: 1.5rem;
+  font-size: clamp(1.19rem, 5vw, 3rem);
+  color: #DDC179!important;
+  text-decoration: none;
+  align-self: center;
+}
+.user {
+  grid-area: user;
+  display: grid;
+  justify-content: end;
+}

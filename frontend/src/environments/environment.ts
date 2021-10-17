@@ -4,7 +4,9 @@
 
 export const environment = {
   appVersion: require('../../package.json').version + '-dev',
-  firebase: {
+  production: false,
+  useEmulators: true,
+  firebaseConfig: {
     apiKey: "AIzaSyCCnaMholBQzKIT00_EliHoJGQ4GlG2QQ4",
     authDomain: "anonymoussystemswebapp.firebaseapp.com",
     projectId: "anonymoussystemswebapp",
@@ -12,8 +14,7 @@ export const environment = {
     messagingSenderId: "1096110030107",
     appId: "1:1096110030107:web:7c32f5e36c824cdc6ce7be",
     measurementId: "G-JW152HK8BY"
-  },
-  production: false
+  }
 };
 
 /*

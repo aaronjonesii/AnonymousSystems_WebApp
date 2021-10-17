@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <nb-card>
-      <nb-card-header>
+    <anon-card>
+      <div title>
         <div class="display-1">Edit Product</div>
-      </nb-card-header>
-      <nb-card-body *ngIf="product">
+      </div>
+      <div *ngIf="product">
         <form class="container">
           <div class="mb-3">
             <label for="name" class="form-label">Product name</label>
@@ -23,11 +23,11 @@
           <!--            <input type="text" class="form-control" id="inputImage">-->
           <!--          </div>-->
           <div class="d-flex justify-content-around">
-            <button nbButton outline status="danger" type="submit" [routerLink]="['/shop', product.id]">Cancel</button>
-            <button nbButton outline status="success" type="submit" (click)="onSubmit()">Save Product</button>
+            <button mat-button type="submit" [routerLink]="['/shop', product.id]">Cancel</button>
+            <button mat-button type="submit" (click)="onSubmit()">Save Product</button>
           </div>
         </form>
-      </nb-card-body>
-    </nb-card>
+      </div>
+    </anon-card>
   </div>
 </div>

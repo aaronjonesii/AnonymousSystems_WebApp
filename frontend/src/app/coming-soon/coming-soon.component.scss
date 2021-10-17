@@ -1,6 +1,5 @@
-@import '../../styles/themes';
+@import 'src/styles/styles';
 
-@include nb-install-component() {
   .header-container {
     padding: 0!important;
     margin-top: 1.5rem;
@@ -31,7 +30,7 @@
   }
   .launching-text {
     font-family: 'Fredoka One', cursive;
-    color: #FFFFFF;
+    //color: #FFFFFF;
     font-size: 3.125rem;
     padding: 0!important;
   }
@@ -45,7 +44,7 @@
     user-select: none;
   }
   .verysoon-text {
-    color: #FFFFFF;
+    //color: #FFFFFF;
     font-size: 3.125rem;
     padding: 0!important;
     .custom-period { color: #DDC179; }
@@ -56,38 +55,35 @@
     text-align: center;
   }
   .form-control {
-    color: #FFFFFF!important;
+    //color: #FFFFFF!important;
     opacity: 1;
     font-size: 1.563rem;
   }
   .invalid-email { margin-top:1rem;margin-bottom:1rem;color: red; font-size: 1.5rem }
   .email-required { margin-top:1rem;margin-bottom:1rem;color: red; font-size: 1.5rem }
   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: #FFFFFF!important;
+    //color: #FFFFFF!important;
     opacity: 1;
     font-size: 1.45rem;
   }
   ::-moz-placeholder { /* Firefox 19+ */
-    color: #FFFFFF!important;
+    //color: #FFFFFF!important;
     opacity: 1;
     font-size: 1.45rem;
   }
   :-ms-input-placeholder { /* IE 10+ */
-    color: #FFFFFF!important;
+    //color: #FFFFFF!important;
     opacity: 1;
     font-size: 1.45rem;
   }
   :-moz-placeholder { /* Firefox 18- */
-    color: #FFFFFF!important;
+    //color: #FFFFFF!important;
     opacity: 1;
     font-size: 1.45rem;
   }
   .email-input-container {
     margin: 2rem 0 1rem 0;
-    @include make-col-ready;
-    @include media-breakpoint-up(md) {
-      @include make-col(8)
-    }
+    // TODO: Make col(8) at media-breakpoint-up(md)
   }
   .email-address-input {
     padding: 0!important;
@@ -97,19 +93,16 @@
   }
   .email-input-label {
     font-size: 1.45rem;
-    color: #FFFFFF;
+    //color: #FFFFFF;
     //padding: 2.5rem 0 0 0;
     //border: 0!important;
   }
   .subscribe-container {
     margin: 0.5rem 0 0 0;
-    @include make-col-ready;
-    @include media-breakpoint-up(md) {
-      @include make-col(4)
-    }
+    // TODO: Make col(4) at media-breakpoint-up(md)
   }
   .subscribe-btn {
-    color: #FFFFFF;
+    //color: #FFFFFF;
     border: #DDC179 6px solid;
     border-radius: 0.5rem;
     padding: 0.5rem;
@@ -131,103 +124,3 @@
     padding: 0!important;
     width: auto;
   }
-
-
-  // Small devices (landscape phones, 576px and up)
-  @media (max-width: 310px) {
-    .header-text { font-size: 1.8rem; }
-  }
-
-  // Small Media Breakpoint
-  @include media-breakpoint-up(sm) {
-    .header-container {
-      margin-top: 2rem;
-      margin-bottom: 2.5rem;
-    }
-    .header-text { font-size: 2.5rem; }
-    .github-icon { font-size: 5rem; }
-  }
-  // Medium Media Breakpoint
-  @include media-breakpoint-up(md) {
-    .header-container {
-      margin-top: 2rem;
-      margin-bottom: 5rem;
-    }
-    .header-text { font-size: 4rem }
-    .github-icon { font-size: 7rem; }
-    .launching-container { margin-top: 4rem; margin-bottom: 3.5rem; }
-    .launching-text { font-size: 5rem; }
-    .verysoon-container {
-      margin-bottom: 4rem;
-    }
-    .verysoon-text { font-size: 5rem; }
-    .form-control { font-size: 2.25rem; box-shadow: none!important; }
-    ::-webkit-input-placeholder { font-size: 2.25rem; }
-    ::-moz-placeholder { font-size: 2.25rem; }
-    :-ms-input-placeholder { font-size: 2.25rem; }
-    :-moz-placeholder { font-size: 2.25rem; }
-  }
-  // Large Media Breakpoint
-  @include media-breakpoint-up(lg) {
-    .header-container {
-      margin-top: 2rem;
-      margin-bottom: 5rem;
-    }
-    .header-text { font-size: 5rem }
-    .github-icon { font-size: 10rem; }
-    .launching-container { margin-top: 3rem;margin-bottom: 4rem; }
-    .launching-text { font-size: 5.5rem; }
-    .verysoon-container {
-      margin-bottom: 3rem;
-    }
-    .verysoon-text { font-size: 5.5rem; }
-    .form-control { font-size: 2.25rem; }
-    ::-webkit-input-placeholder { font-size: 2.25rem; }
-    ::-moz-placeholder { font-size: 2.25rem; }
-    :-ms-input-placeholder { font-size: 2.25rem; }
-    :-moz-placeholder { font-size: 2.25rem; }
-    .subscribe-btn { font-size: 1.35rem; }
-  }
-  // Extra-Large Media Breakpoint
-  @include media-breakpoint-up(xl) {
-    .header-container {
-      margin-top: 3rem;
-      margin-bottom: 6rem;
-    }
-    .header-text { font-size: 5rem }
-    .github-icon { font-size: 10rem; }
-    .launching-container { margin-top: 4rem;margin-bottom: 6rem; }
-    .launching-text { font-size: 7rem; }
-    .verysoon-text { font-size: 7rem; }
-    .form-control { font-size: 2.5rem; }
-    ::-webkit-input-placeholder { font-size: 2.5rem; }
-    ::-moz-placeholder { font-size: 2.5rem; }
-    :-ms-input-placeholder { font-size: 2.5rem; }
-    :-moz-placeholder { font-size: 2.5rem; }
-    .email-input-container { padding-left: 10rem; }
-    .subscribe-container { padding-right: 5rem; }
-    .subscribe-btn { font-size: 1.35rem; }
-  }
-  @include media-breakpoint-up(xxl) {
-    .email-input-container { padding-left: 15rem; }
-    .subscribe-container { padding-right: 7rem; }
-  }
-  @include media-breakpoint-up(xxxxl) {
-    .header-container {
-      margin-top: 3rem;
-      margin-bottom: 6rem;
-    }
-    .header-text { font-size: 7rem }
-    .github-icon { font-size: 10rem; }
-    .launching-container { margin-bottom: 5rem; }
-    .launching-text { font-size: 7rem; }
-    .verysoon-text { font-size: 7rem; }
-    .form-control { font-size: 3rem; }
-    ::-webkit-input-placeholder { font-size: 3rem; }
-    ::-moz-placeholder { font-size: 3rem; }
-    :-ms-input-placeholder { font-size: 3rem; }
-    :-moz-placeholder { font-size: 3rem; }
-    .subscribe-btn { padding: 1rem; font-size: 2rem; }
-  }
-
-}

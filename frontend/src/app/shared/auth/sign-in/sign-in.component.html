@@ -1,39 +1,35 @@
-<div class="container">
-  <div class="row">
-    <div class="sign-in-container">
-      <form class="">
-        <div class="display-4">Sign In</div>
-        <div class="mb-3">
-          <label for="emailInput" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" #emailAddress>
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-          <label for="passwordInput" class="form-label">Password</label>
-          <input type="password" class="form-control" id="passwordInput" #userPassword>
-        </div>
-        <button nbButton status="success" type="submit" (click)="authService.SignIn(emailAddress.value, userPassword.value)">Log in</button>
-      </form>
-      <div class="row my-4">
-        <div class="display-4">Or</div>
-      </div>
-      <!-- Calling GoogleAuth Api from AuthService -->
-      <div class="formGroup">
-        <button nbButton  status="info" type="button" (click)="authService.GoogleAuth()">
-          <nb-icon icon="google"></nb-icon>
-          Log in with Google
-        </button>
-      </div>
-      <div class="container my-3">
-        <div class="row">
-          <button nbButton outline status="warning" routerLink="/forgot-password">Forgot Password?</button>
-        </div>
-      </div>
-      <div class="container my-3">
-        <div class="row">
-          <button nbButton outline status="primary" routerLink="/register-user">Sign Up</button>
-        </div>
-      </div>
+<a class="brand-name" routerLink="/">Anonymous Systems</a>
+<img class="brand-logo" src="assets/imgs/logo.png" />
+<header>Sign In</header>
+<div class="header-text">Welcome back, sign into your account securely!</div>
+<button class="google-login" (click)="authService.GoogleAuth()">
+  <img class="button-icon" src="assets/imgs/GoogleIcon.png" /><span>Login with Google</span>
+</button>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="email">
+    <label for="email" class="email-label">Email address: </label>
+    <input id="email" type="email" class="form-control" formControlName="email" required />
+
+    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="input-error">
+      <div *ngIf="email?.errors?.required">Email address is <strong>required</strong>.</div>
+      <div *ngIf="email?.errors?.email">Please enter a valid email address.</div>
     </div>
   </div>
+
+  <div class="password">
+    <label for="password">Password: </label>
+    <input id="password" type="password" class="form-control" formControlName="password" required />
+
+    <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="input-error">
+      <div *ngIf="password?.errors?.required">Password is <strong>required</strong>.</div>
+      <div *ngIf="password?.errors?.minlength">Password must be at least 8 characters long.</div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="!loginForm.valid">Log In</button>
+</form>
+<a class="forgot-pass" routerLink="/auth/forgot-password">Forgot Password?</a>
+<div class="sign-up">
+  Don't have an account?
+  <a class="sign-up-button" routerLink="/auth/register">Sign Up</a>
 </div>

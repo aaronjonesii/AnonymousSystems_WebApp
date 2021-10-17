@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
-    <nb-card>
-      <nb-card-header>
+    <anon-card>
+      <div title>
         <div class="display-1">Add New Product</div>
-      </nb-card-header>
-      <nb-card-body>
+      </div>
+      <div>
         <form class="container" [formGroup]="newProductForm" (ngSubmit)="onSubmit()">
           <div class="mb-3">
             <label for="name" class="form-label">Product name</label>
@@ -29,51 +29,51 @@
           </div>
 
           <div class="row mb-3 float-end">
-            <nb-icon icon="plus-circle-outline" status="basic" matTooltip="Add field" matTooltipPosition="above"
-                     aria-label="Button that adds custom field to product."></nb-icon>
+            <button matTooltip="Add field" matTooltipPosition="above"
+                     aria-label="Button that adds custom field to product.">+</button>
           </div>
 
           <div class="d-flex justify-content-center">
-            <button nbButton outline status="success" type="submit">Add Product</button>
+            <button type="submit">Add Product</button>
           </div>
         </form>
-      </nb-card-body>
-    </nb-card>
+      </div>
+    </anon-card>
 
-    <nb-card>
-      <nb-card-header><div class="display-1">Dynamic Form</div></nb-card-header>
-      <nb-card-body>
+    <anon-card>
+      <div title><div class="display-1">Dynamic Form</div></div>
+      <div>
         <form #dynamicForm="ngForm" class="container" (ngSubmit)="logValue()">
           <div class="row mt-3">
             <div class="row add-button-container mb-4">
               <label class="form-label">Dynamic Field Name</label>
               <input class="form-control" #dynamicFieldName name="dynamicFieldName" placeholder="Dynamic Field Name" />
-              <button nbButton status="warning" type="button" class="mt-2"
+              <button type="button" class="mt-2"
                       (click)="addDynamicField(dynamicFieldName.value)">Add Dynamic Field</button>
             </div>
-            <nb-card class="bg-dark" *ngFor="let testField of test; let i = index;">
-              <nb-card-header class="position-relative">
-                <nb-badge text="{{testField.id}}" status="primary" position="top right"></nb-badge>
+            <anon-card class="bg-dark" *ngFor="let testField of test; let i = index;">
+              <div title class="position-relative">
+                {{testField.id}}
                 <div class=""><span class="text-muted small">Field Name: &nbsp;</span> <span class="h5">{{testField.field_name}}</span></div>
-              </nb-card-header>
-              <nb-card-body>
+              </div>
+              <div>
                 <div class="form-group">
                   <label class="form-label">{{testField.field_name}}</label>
-                  <input type="text" class="form-control" [(ngModel)]="testField.field_value"
+                  <input type="text" class="form-control" [(ngModel)]="testField.field_placeholder"
                          name="dynamicField_{{testField.id}}" placeholder="{{testField.field_name}} placeholder" />
                 </div>
-              </nb-card-body>
-              <nb-card-footer>
-                <button nbButton status="danger" type="button" (click)="removeDynamicField(i)">Remove {{testField.field_name}} Field</button>
-              </nb-card-footer>
-            </nb-card>
+              </div>
+              <div footer>
+                <button type="button" (click)="removeDynamicField(i)">Remove {{testField.field_name}} Field</button>
+              </div>
+            </anon-card>
           </div>
           <div class="row mt-4 submit-button-container">
-            <button nbButton type="submit" status="success">Submit</button>
+            <button type="submit" status="success">Add Field</button>
           </div>
         </form>
-      </nb-card-body>
-      <nb-card-footer></nb-card-footer>
-    </nb-card>
+      </div>
+      <div footer></div>
+    </anon-card>
   </div>
 </div>

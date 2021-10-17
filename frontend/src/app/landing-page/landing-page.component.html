@@ -1,0 +1,19 @@
+<anon-layout-header></anon-layout-header>
+<div class="background-image">
+  <div class="grid-container">
+    <div class="main-container">
+      <div class="subtitle-container">Your online wardrobe</div>
+      <div class="title-container">Web Developer</div>
+      <div class="button-container"><button routerLink="/home">Get More</button></div>
+    </div>
+  </div>
+  <div class="steps-container">
+    <div class="step-container" *ngFor="let step of webDevSteps">
+      <div class="step-text">Step {{step.number}}</div>
+      <div class="step-header">{{step.title}}</div>
+      <div class="step-content">{{step.content}}</div>
+    </div>
+  </div>
+</div>
+<canvas class="graphic-strip"></canvas>
+<canvas class="background-image-2"></canvas>

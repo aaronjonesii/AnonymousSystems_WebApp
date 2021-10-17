@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <nb-card>
-      <nb-card-header>
+    <anon-card>
+      <div title>
         <div class="display-1 text-center">Checkout</div>
-      </nb-card-header>
+      </div>
       <div class="container">
         <div class="row">
           <div class="display-5 mt-4 text-center">Shipping Information</div>
@@ -50,11 +50,11 @@
           </form>
         </div>
       </div>
-      <nb-card-footer class="d-flex flex-column justify-content-center">
-        <button nbButton status="info">Continue to Payment info</button>
-        <button nbButton status="success" routerLink="/shop/cart/checkout/success">Pay</button>
-      </nb-card-footer>
-    </nb-card>
+      <div footer class="row g-3">
+        <button>Continue to Payment info</button>
+        <button routerLink="/shop/cart/checkout/success">Pay</button>
+      </div>
+    </anon-card>
   </div>
 </div>
-<button nbButton outline status="warning" routerLink="/dashboard">Continue Shopping</button>
+<button routerLink="/dashboard">Continue Shopping</button>

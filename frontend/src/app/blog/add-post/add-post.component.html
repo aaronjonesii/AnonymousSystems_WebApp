@@ -1,0 +1,8 @@
+<h1>Add Post</h1>
+<form>
+  <anon-card>
+    <anon-card-content><input type="text" [(ngModel)]="post.title" name="post-title" /></anon-card-content>
+  </anon-card>
+  <button (click)="addPost(post)" type="submit">Add Post</button>
+</form>
+

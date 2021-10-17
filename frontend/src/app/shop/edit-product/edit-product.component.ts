@@ -19,7 +19,7 @@ const getObservable = (collection: AngularFirestoreCollection<Product>) => {
   styleUrls: ['./edit-product.component.scss']
 })
 export class EditProductComponent implements OnInit {
-  product: Product | undefined;
+  product: Product| any | undefined;
   products = getObservable(this.db.collection('products'));
 
   constructor(
@@ -37,7 +37,7 @@ export class EditProductComponent implements OnInit {
 
   onSubmit() {
     this.product!.last_updated = Date.now();
-    this.db.collection('products').doc(this.product!.id).set(this.product)
+    this.db.collection('products').doc(this.product!.id).update(this.product)
       .then(() => this.router.navigate(['/shop', this.product?.id]))
   }
 

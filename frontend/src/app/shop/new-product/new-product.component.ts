@@ -19,7 +19,7 @@ export class NewProductComponent implements OnInit {
   })
   submitted = false;
 
-  test= [{ id: 1, field_name: 'Default Dynamic Field Name', field_value: 'Default Dynamic Field Value' }]
+  test= [{ id: 1, field_name: 'Default Dynamic Field Name', field_placeholder: 'Default Dynamic Field Value' }]
 
   constructor(
     private db:AngularFirestore,
@@ -38,7 +38,7 @@ export class NewProductComponent implements OnInit {
   }
 
   addDynamicField(fieldName: string) {
-    this.test.push({ id: this.test.length + 1, field_name: fieldName, field_value: '' })
+    this.test.push({ id: this.test.length + 1, field_name: fieldName, field_placeholder: '' })
   }
   removeDynamicField(i: number) { this.test.splice(i, 1); }
   logValue() { this.notify.sendNotification(JSON.stringify(this.test)) }

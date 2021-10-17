@@ -5,6 +5,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from '@firebase/app-compat';
 import { NotificationService } from './notification.service';
 import { GoogleAuthProvider } from '@angular/fire/auth';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ import { GoogleAuthProvider } from '@angular/fire/auth';
 
 export class AuthService {
   userData: any; // Save logged in user data
+  private _isUserAuthenticated$ = new BehaviorSubject<boolean>(false);
+  public isUserAuthenticated$ = this._isUserAuthenticated$.asObservable();
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
@@ -34,17 +37,31 @@ export class AuthService {
     })
   }
 
+  setUserAuthenticationStatus(isUserAuthenticated: boolean) {
+    this._isUserAuthenticated$.next(isUserAuthenticated);
+  }
+
   // Sign in with email/password
   SignIn(email: string, password: string) {
     return this.auth.signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
+        this.setUserAuthenticationStatus(true);
         this.SetUserData(userCredential.user)
           .then(() => this.router.navigate(['dashboard']));
       }).catch((error) => {
+        this.setUserAuthenticationStatus(false);
         const errorCode = error.code;
         const errorMessage = error.message;
         this.notification.sendNotification(`❌ ${errorMessage}`);
       })
+  }
+  signInOnly(email: string, password: string) {
+    return this.auth.signInWithEmailAndPassword(email, password)
+  }
+  signUpOnly(email: string, password: string) {
+    this.auth.createUserWithEmailAndPassword(email, password).then(result => {
+      return result.user
+    })
   }
 
   // Sign up with email/password
@@ -52,19 +69,21 @@ export class AuthService {
     return this.auth.createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         // Signed in
+        this.setUserAuthenticationStatus(true);
         const user = userCredential.user;
         this.SendVerificationMail(user);
         this.SetUserData(user)
       })
       .catch((error) => {
+        this.setUserAuthenticationStatus(false);
         const errorCode = error.code;
         const errorMessage = error.message;
         this.notification.sendNotification(`❌ ${errorMessage}`);
       })
   }
 
-
   // Send email verification when new user sign up
+  // TODO: Need to create page for this
   SendVerificationMail(userCredential: any) {
     return userCredential.sendEmailVerification()
       .then(() => {
@@ -106,11 +125,13 @@ export class AuthService {
         const user = result.user;
         this.SetUserData(result.user)
           .then(() => {
+            this.setUserAuthenticationStatus(true);
             this.router.navigate(['/dashboard']).then(() => {
               this.notification.sendNotification(`✔ Welcome ${user.displayName}`);
             })
           });
       }).catch((error) => {
+        this.setUserAuthenticationStatus(false);
         const errorCode = error.code;
         const errorMessage = error.message;
         this.notification.sendNotification(`❌ ${errorMessage}`);
@@ -135,10 +156,11 @@ export class AuthService {
   }
 
   // Sign out
-  SignOut() {
+  LogOut() {
     return this.auth.signOut().then(() => {
+      this.setUserAuthenticationStatus(false);
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['/auth', 'login']);
     })
   }
 

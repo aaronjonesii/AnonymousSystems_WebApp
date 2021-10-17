@@ -1,20 +1,20 @@
 <div class="container">
   <div class="row">
     <div class="display-1 text-center" style="color: white">Product Details</div>
-    <nb-card *ngIf="product">
-      <nb-card-header>
+    <anon-card class="mb-3" *ngIf="product">
+      <div title>
         <h3>{{ product.name }}</h3>
-      </nb-card-header>
-      <nb-card-body>
+      </div>
+      <div>
         <h4>{{ product.price | currency }}</h4>
         <p>{{ product.description }}</p>
-      </nb-card-body>
-      <nb-card-footer class="d-flex justify-content-around">
-        <button nbButton status="success" size="small" (click)="addToCart(product)">Add to cart</button>
-        <button nbButton status="warning" size="small" [routerLink]="['/shop', product.id, 'edit']">Edit Product</button>
-        <button nbButton status="danger" size="small" (click)="deleteProduct(product)">Delete Product</button>
-      </nb-card-footer>
-    </nb-card>
-    <button nbButton status="info" routerLink="/dashboard">All Products</button>
+      </div>
+      <div footer class="d-flex justify-content-around">
+        <button (click)="addToCart(product)">Add to cart</button>
+        <button [routerLink]="['/shop', product.id, 'edit']">Edit Product</button>
+        <button (click)="deleteProduct(product)">Delete Product</button>
+      </div>
+    </anon-card>
+    <button routerLink="/dashboard">All Products</button>
   </div>
 </div>

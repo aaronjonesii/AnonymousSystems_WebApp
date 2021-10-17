@@ -1,7 +1,6 @@
-@import 'src/styles/themes';
+@import 'src/styles/styles';
 
-@include nb-install-component() {
   .name-required, .description-required, .price-required {
     color: red;
   }
-}
+

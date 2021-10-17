@@ -1,6 +1,6 @@
 export const environment = {
   appVersion: require('../../package.json').version,
-  firebase: {
+  firebaseConfig: {
     apiKey: "AIzaSyCCnaMholBQzKIT00_EliHoJGQ4GlG2QQ4",
     authDomain: "anonymoussystemswebapp.firebaseapp.com",
     projectId: "anonymoussystemswebapp",
