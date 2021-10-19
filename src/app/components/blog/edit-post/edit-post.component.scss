@@ -1,0 +1,9 @@
+@import 'src/styles';
+
+:host {}
+article {
+  max-width: 740px;
+  padding: 0 4rem;
+  margin: 0 auto!important;
+  float: none!important;
+}

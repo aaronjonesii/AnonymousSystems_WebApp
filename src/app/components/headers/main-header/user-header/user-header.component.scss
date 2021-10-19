@@ -1,0 +1,24 @@
+@import '../../../../../styles';
+
+:host {}
+.user-image {
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+}
+.user-icon {
+  color: $gold-color!important;
+  font-size: 2rem;
+}
+.login-button {
+  background-image: linear-gradient(to right, #2ce69b, #00d68f);
+  border: none;
+  box-shadow: 0 0 0 0 #00b887, 0 0 0 0 #00997a, 0 0 transparent;
+  color: #ffffff;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1rem;
+  padding: 0.5rem;
+}

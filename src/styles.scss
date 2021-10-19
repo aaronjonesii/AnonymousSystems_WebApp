@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Zilla+Slab+Highlight:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  min-height: 100vh;
+  height: auto;
+  margin: 0;
+
+  font-family: Nunito, "Open Sans"!important;
+}
+a, button {
+  cursor: pointer;
+}
+button {
+  //background-color: rgba(143, 155, 179, 0.16);
+  //border-color: rgba(143, 155, 179, 0.24);
+  //color: rgba(143, 155, 179, 0.48);
+  padding: 0.6875rem 1.125rem;
+  //border-style: solid;
+  //border-width: 0.0625rem;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  line-height: 1rem;
+
+  transition-duration: 0.15s;
+  transition-property: background-color, border-color, box-shadow, color;
+  transition-timing-function: ease-in;
+}
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+h1 {
+  font-size: 2.25rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  line-height: 3rem;
+}
+p {
+  color: rgb(34, 43, 69);
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+}
+
+// Input form error class
+.input-error {
+  font-size: 75%;
+  color: #f44336;
+  padding: 0.25rem;
+}
+
+// Media Queries
+$xsm: 300px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xlg: 1200px;
+$xxl: 1400px;
+$xxxl: 1600px;
+
+$blue-color: #222b45;
+$gold-color: #DDC179;
+$light-gold-color: #FFE6A6;
+$medium-gold-color: #FFDE8C;
+
+$text-muted: #6c757d!important;
+$grey-icon-color: #8f9bb3;

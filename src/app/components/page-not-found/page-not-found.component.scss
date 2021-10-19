@@ -1,0 +1,44 @@
+@import 'src/styles';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main-container {
+  height: calc(100vh - 90px);
+  display: grid;
+  place-content: center;
+  color: #8f9bb3;
+  > * { justify-self: center; margin-bottom: 2rem; }
+  .header {
+    font-weight: 300;
+    line-height: 1.2;
+    font-size: calc(1.475rem + 2.7vw);
+  }
+  .header-text {
+    font-family: Open Sans, sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.25rem;
+    color: $text-muted;
+  }
+  .home-button {
+    background-color: #edf1f7;
+    border-color: #edf1f7;
+    color: #222b45;
+    padding: 0.6875rem 1.125rem;
+    border-style: solid;
+    border-width: 0.0625rem;
+    text-transform: uppercase;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    font-weight: 700;
+    font-family: "Open Sans", Nunito, sans-serif;
+
+    transition-duration: 0.15s;
+    transition-property: background-color, border-color, box-shadow, color;
+    transition-timing-function: ease-in;
+  }
+}

@@ -1,0 +1,20 @@
+@import 'src/styles';
+
+
+:host {}
+// Removes focus lines from above and below editor
+::ng-deep .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-focused {
+  border: none!important;
+  box-shadow: none!important;
+  padding: 0!important;
+}
+::ng-deep story {
+  h1 {
+    color: $gold-color!important;
+  }
+}
+::ng-deep story {
+  border: none!important;
+  box-shadow: none!important;
+  padding: 0!important;
+}

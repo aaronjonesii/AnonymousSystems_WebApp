@@ -1,0 +1,37 @@
+@import 'src/styles';
+
+:host {
+  margin-top: 2rem;
+  min-width: 100%;
+  position: relative;
+}
+.footer-grid-container {
+  display: grid;
+  grid-template:
+    ' contact     copyright     copyright     copyright  version ' auto
+    / 1fr 1fr 1fr 1fr 1fr;
+  padding: 0 2rem 0 2rem;
+}
+.contact {
+  grid-area: contact;
+  text-decoration: none;
+  color: $gold-color;
+}
+.copyright {
+  grid-area: copyright;
+  display: grid;
+  justify-content: center;
+  color: $gold-color;
+  text-align: center;
+}
+.version {
+  grid-area: version;
+  display: grid;
+  justify-content: end;
+  span {
+    font-size: 0.65rem;
+    border-radius: 10px;
+    padding: 0.06rem 0.75rem 0.06rem 0.75rem ;
+    color: rgba(128, 128, 128, 0.58);
+  }
+}

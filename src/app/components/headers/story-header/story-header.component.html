@@ -1,0 +1,25 @@
+<div class="company-container">
+  <a [routerLink]="nav_path.HOME" aria-label="HOME" rel="noreferrer">
+    <img class="company-logo" src="favicon.ico" />
+  </a>
+
+  <div class="company-logo-text-container">
+    Editing in
+    <a class="company-logo-text" [routerLink]="nav_path.HOME" aria-label="HOME" rel="noreferrer">
+    &nbsp;Anonymous Systems
+    </a>
+  </div>
+</div>
+
+<span class="auto-save-status">
+</span>
+
+<div class="icon-actions">
+  <span class="story-status">DRAFT</span>
+  <button class="save-post-button" (click)="savePost(true)">Save & Preview</button>
+
+  <mat-icon class="menu-icon">more_vert</mat-icon>
+  <mat-icon class="notifications-icon">notifications_none</mat-icon>
+
+  <anon-user-header></anon-user-header>
+</div>

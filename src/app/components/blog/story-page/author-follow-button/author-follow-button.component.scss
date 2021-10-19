@@ -1,0 +1,9 @@
+@import 'src/styles';
+
+:host {align-self: center;}
+.follow-button {
+  height: max-content;
+  border-radius: 0.75rem;
+  font-size: 0.625rem;
+  line-height: 0.75rem;
+}

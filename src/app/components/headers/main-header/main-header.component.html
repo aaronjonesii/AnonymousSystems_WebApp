@@ -1,0 +1,14 @@
+<div class="company-container">
+  <a rel="noreferrer" routerLink="/" aria-label="Home">
+    <img class="company-logo" src="../../../../assets/imgs/logo.webp" alt="Anonymous Systems Logo" />
+  </a>
+  <a class="company-name" rel="noreferrer" routerLink="/" aria-label="Home">Anonymous Systems</a>
+</div>
+<div class="icons-container">
+  <mat-icon class="search-button">search</mat-icon>
+  <mat-icon class="reading-list-button">bookmark_border</mat-icon>
+  <mat-icon class="notification-button material-icons-outlined">notifications_none</mat-icon>
+  <button class="write-story-button" [routerLink]="nav_path.BLOG_NEW_POST">Write</button>
+
+  <anon-user-header></anon-user-header>
+</div>

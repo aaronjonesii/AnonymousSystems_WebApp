@@ -1,0 +1,41 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() { return request.auth != null; }
+
+		// Deny everything unless specified permission
+  	match /{everythingInMyDatabase=**} {allow read, write: if false;}
+    match /users/{userID} {
+      function isSameUser(rsc) { return rsc.data.uid == request.auth.uid; }
+      function onlyUserContentChanged() {
+        return request.resource.data.uid == resource.data.uid
+          && request.resource.data.email == resource.data.email
+          && request.resource.data.emailVerified == resource.data.emailVerified
+          && request.resource.data.keys() == resource.data.keys();
+      }
+      allow create;
+      allow update: if isSameUser(resource) && onlyUserContentChanged(resource);
+      allow delete, read: if request.resource.data.uid == request.auth.uid;
+    }
+    match /posts/{postID} {
+      function getRole(rsc) { return rsc.data.roles[request.auth.uid]; }
+      function isOneOfRoles(rsc, array) { return isSignedIn() && (getRole(rsc) in array); }
+      function postIsPublic(rsc) { return rsc.data.public == true; }
+      function isValidNewPost() {
+        return request.resource.data.roles[request.auth.uid] == 'owner';
+      }
+      allow create: if isSignedIn() && isValidNewPost();
+      allow update: if isOneOfRoles(resource, ['owner', 'writer']);
+      allow delete: if isOneOfRoles(resource, ['owner']);
+      allow read: if isOneOfRoles(resource, ['owner', 'writer', 'commenter', 'reader'])
+                     || postIsPublic(resource);
+      match /comments/{comment} {
+        allow create, update: if isOneOfRoles(get(/databases/$(database)/documents/posts/$(postID)),
+                          ['owner', 'writer', 'commenter'])
+                          && request.resource.data.user == request.auth.uid;
+        allow read: if isOneOfRoles(get(/databases/$(database)/documents/posts/$(postID)),
+          ['owner', 'writer', 'commenter', 'reader']);
+      }
+    }
+	}
+}

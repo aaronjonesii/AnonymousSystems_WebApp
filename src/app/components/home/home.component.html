@@ -1,0 +1,25 @@
+<anon-header class="header"></anon-header>
+
+<div class="huge-title">{{HOME_PAGE_TITLE}}</div>
+
+<div class="tags-container">
+  <div class="tag-container" *ngFor="let tag of tags">
+    <span class="hash-icon">#</span>
+    <span class="tag">{{tag}}</span>
+  </div>
+</div>
+
+<ng-container *ngIf="pageLoaded == false; else loaded">
+  <anon-loading></anon-loading>
+</ng-container>
+
+<ng-template #loaded>
+  <div class="posts-container">
+    <div class="post" *ngFor="let post of posts">
+      <a class="post-link" routerLink="{{nav_path.BLOG_POST}}/{{post.id}}">{{post.title}}</a>
+    </div>
+  </div>
+
+</ng-template>
+
+<anon-footer></anon-footer>

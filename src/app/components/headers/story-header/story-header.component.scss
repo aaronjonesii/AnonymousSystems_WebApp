@@ -1,0 +1,54 @@
+@import 'src/styles';
+
+:host {
+  display: flex;
+  justify-content: space-between;
+  height: 4.75rem;
+  padding: 1.25rem;
+}
+.company-container {
+  display: flex;
+  align-items: center;
+  a {
+    .company-logo {}
+  }
+  .company-logo-text-container {
+    display: none;
+    margin-left: 1rem;
+    font-weight: lighter !important;
+    color: rgb(34, 43, 69);
+    @media (min-width: $md) { display: inline-flex; }
+    .company-logo-text {
+      text-decoration: none;
+      color: $gold-color;
+    }
+  }
+}
+.auto-save-status { align-self: center; display: none; @media (min-width: $md) { display: flex; } }
+.icon-actions {
+  display: flex;
+  align-items: center;
+  width: auto;
+  color: rgb(143, 155, 179);
+  > * {
+    margin-right: 1rem;
+  }
+  .story-status {
+    display: inline-flex;
+    align-items: center;
+    font-family: "Open Sans", sans-serif;
+    text-transform: capitalize;
+    cursor: default;
+    border-radius: 1.5rem;
+    background-color: rgba(51, 102, 255, 0.16);
+    color: rgb(51, 102, 255);
+    border-color: rgb(51, 102, 255);
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1rem;
+    padding: 0.0625rem 0.9375rem;
+  }
+  .save-post-button {}
+  .menu-icon {}
+  .notifications-icon { display: none; @media (min-width: $md) { display: flex; } }
+}

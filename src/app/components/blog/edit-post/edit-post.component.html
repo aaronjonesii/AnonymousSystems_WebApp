@@ -1,0 +1,16 @@
+<anon-story-header (saveClicked)="onSave($event)" ></anon-story-header>
+
+<ng-container *ngIf="storyLoaded == false; else loaded">
+<anon-loading></anon-loading>
+</ng-container>
+
+<ng-template #loaded>
+  <article>
+    <anon-editor
+      [config]="editorConfig"
+      (editorChange)="onChange($event)"
+      (readyChange)="putEditorInFocus($event)"
+      [story]="this.story.content"
+      [disable_editing]="false"></anon-editor>
+  </article>
+</ng-template>

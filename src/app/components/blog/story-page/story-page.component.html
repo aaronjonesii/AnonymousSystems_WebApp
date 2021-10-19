@@ -1,0 +1,54 @@
+<anon-header></anon-header>
+
+<div class="main-container">
+  <header class="title">{{story.title}}</header>
+  <span class="byline">{{story.byline}}</span>
+
+  <div class="top-container">
+    <div class="story-author-container">
+      <div class="author-container">
+        <div class="author-img"></div>
+        <anon-author-follow-button class="author-follow-button"></anon-author-follow-button>
+      </div>
+      <small class="dates">{{story.date_added | date:'LLL d, yyyy' }} · {{story.read_time}} min read</small>
+    </div>
+
+    <small class="status">Story Status: </small>
+
+    <anon-story-socials class="story-socials"></anon-story-socials>
+  </div>
+
+  <ng-container *ngIf="this.story.background_image == ''; else storyImage" class=""> </ng-container>
+  <ng-template #storyImage>
+    <img class="featured-image" [src]="story.background_image" />
+  </ng-template>
+
+  <ng-container *ngIf="storyLoaded == false ;else loaded">
+    <anon-loading></anon-loading>
+  </ng-container>
+  <ng-template #loaded>
+    <anon-editor
+      [disable_editing]="true"
+      [config]="editorConfig"
+      [story]="storyMarkup"></anon-editor>
+  </ng-template>
+
+  <ng-container *ngIf="story.category">
+    <div class="category">{{story.category.name}}</div>
+  </ng-container>
+
+  <ng-container *ngIf="story.tags">
+    <div class="tags-container" *ngIf="story.tags.length > 0">
+      <span class="tag" *ngFor="let tag of story.tags">{{tag}}</span>
+    </div>
+  </ng-container>
+
+  <anon-story-socials class="footer-socials"></anon-story-socials>
+  <hr />
+  <div class="footer-container">
+    <div class="footer-author-img"></div>
+    <anon-author-follow-button class="footer-follow-button"></anon-author-follow-button>
+  </div>
+  <hr />
+  <button disabled class="responses-button">See Responses (0) - Coming Soon</button>
+</div>
